@@ -281,9 +281,11 @@ function initMap() {
 
 function detailPictures(){
 for (i = 0; i < locations.length; i++){
+  var classNumber = i % 2;
   
+
   var newContainer = document.createElement("div");
-  newContainer.setAttribute('class','detailContainer');
+  newContainer.classList.add('detailContainer','detailContainer' + classNumber);
   var section = document.getElementById("detailPicture"); 
   section.appendChild(newContainer);
 
@@ -292,9 +294,16 @@ for (i = 0; i < locations.length; i++){
   newImg.setAttribute('class', 'snippet'); 
   newContainer.appendChild(newImg); 
 
-  var descriptionText = document.createElement("p");
+  var descriptionText = document.createElement("h2");
+  descriptionText.classList.add("descritptionTextHeadline")
   descriptionText.innerHTML = locations[i].labels;
   newContainer.appendChild(descriptionText); 
+
+  var streetName = document.createElement("p");
+  streetName.classList.add("descritptionTextBody");
+  streetName.innerHTML = locations[i].streetName;
+  newContainer.appendChild(streetName);
+
 
 } 
 }

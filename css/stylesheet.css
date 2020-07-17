@@ -1,6 +1,18 @@
+@font-face{
+    font-family: 'Minipax';
+    src: url(/css/font/Minipax-Regular.eot) format("eot");
+    src: url(/css/font/Minipax-Regular.woff) format("woff");
+    src: url(/css/font/Minipax-Regular.woff2) format("woff2");
+}
+
 *{
     color: #616161;
-    font-family: sans-serif;
+    font-family: "Minipax", 'Times New Roman', Times, serif;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p {
+    margin: 0;
+    padding: 0; 
 }
      
      
@@ -18,18 +30,36 @@
           padding-top: 5vh;
       }
       p{
-          padding: 0 10vw
+          float: left;
       }
       section{
           height: 200%;
 
       }
+    
       #map {
         height: 80%;
       }
-
+      #detailPicture{
+          /* display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
+          justify-content: space-evenly; */
+      }
+      .detailContainer{
+        padding: 10px;
+      }
+      .detailContainer1{
+          float: left;
+      }
+      .detailContainer0{
+          float: right;
+      }
     .snippet{
-        height: 20vw;
+        height: 20vh;
         width: auto;
-        padding:100px ;
+
+    }
+    .descritptionText{
+        font-size: 4em;
     }
