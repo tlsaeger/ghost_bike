@@ -6,7 +6,7 @@
 }
 
 *{
-    color: #616161;
+    color: #f5f5f5;
     font-family: "Minipax", 'Times New Roman', Times, serif;
 }
 
@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p {
         height: 100%;
         margin: 0;
         padding: 0;
-        background-color: #f5f5f5;
+        background-color: #000000;
       }
       
       h1{
@@ -29,11 +29,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p {
           font-size: 5em;
           padding-top: 5vh;
       }
-      p{
-          float: left;
-      }
       section{
-          height: 200%;
+          height: 500%;
 
       }
     
@@ -46,20 +43,25 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p {
           flex-direction: row;
           justify-content: space-evenly; */
       }
-      .detailContainer{
+  /*     .detailContainer{
         padding: 10px;
-      }
+      } */
       .detailContainer1{
-          float: left;
-      }
-      .detailContainer0{
           float: right;
       }
-    .snippet{
+      .detailContainer0{
+          float: left;
+      } 
+      .detailContainer{
+          margin: 12vh 20vw;
+          clear: both;
+
+      }
+     .snippet{
         height: 20vh;
         width: auto;
 
-    }
+    } 
     .descritptionText{
         font-size: 4em;
     }
