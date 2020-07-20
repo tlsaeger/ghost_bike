@@ -260,7 +260,7 @@ function initMap() {
       }
     ]
   });
-  var image = "Assets/mountain-bike.png";
+  var image = "Assets/bicycle.png";
  
   for (i = 0; i < locations.length; i++){
     console.log(locations[i].labels)
@@ -286,6 +286,7 @@ for (i = 0; i < locations.length; i++){
 
   var newContainer = document.createElement("div");
   newContainer.classList.add('detailContainer','detailContainer' + classNumber);
+  newContainer.setAttribute("data-aos","fade-in")
   var section = document.getElementById("detailPicture"); 
   section.appendChild(newContainer);
 
