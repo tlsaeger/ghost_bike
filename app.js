@@ -276,7 +276,14 @@ function initMap() {
 
       },
       map: map});
+      marker.addListener("click", function() {
+        var newImg = document.createElement("img"); 
+        newImg.src = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location=46.414382,10.013988&heading=151.78&pitch=-0.76&key=" + APIKey;
+        var section = document.getElementById("detailPicture"); 
+        section.appendChild(newImg);
+      });
   }
+
 }
 
 function detailPictures(){
@@ -307,4 +314,4 @@ for (i = 0; i < locations.length; i++){
 
 } 
 }
-detailPictures();
+/* detailPictures(); */
