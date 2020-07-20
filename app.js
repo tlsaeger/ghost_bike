@@ -260,7 +260,7 @@ function initMap() {
       }
     ]
   });
-  var image = "Assets/bicycle.png";
+  var image = "Assets/mountain-bike.png";
  
   for (i = 0; i < locations.length; i++){
     console.log(locations[i].labels)
@@ -283,7 +283,6 @@ function detailPictures(){
 for (i = 0; i < locations.length; i++){
   var classNumber = i % 2;
   
-
   var newContainer = document.createElement("div");
   newContainer.classList.add('detailContainer','detailContainer' + classNumber);
   newContainer.setAttribute("data-aos","fade-in")
