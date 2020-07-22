@@ -1,8 +1,8 @@
 @font-face{
     font-family: 'Minipax';
-    src: url(/css/font/Minipax-Regular.eot) format("eot");
-    src: url(/css/font/Minipax-Regular.woff) format("woff");
-    src: url(/css/font/Minipax-Regular.woff2) format("woff2");
+    src: url(font/Minipax-Regular.eot) format("eot");
+    src: url(font/Minipax-Regular.woff) format("woff");
+    src: url(font/Minipax-Regular.woff2) format("woff2");
 }
 
 *{
