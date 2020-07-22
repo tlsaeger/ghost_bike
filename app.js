@@ -1,4 +1,4 @@
-var locations = [{
+var markers = [{
     lat: 53.550415,
     lng: 10.109466,
     labels: "03.06.20",
@@ -279,12 +279,11 @@ function initMap() {
   });
   var image = "Assets/mountain-bike.png";
 
-  for (i = 0; i < locations.length; i++) {
-    var lat = locations[i].lat;
-    var lng = locations[i].lng;
-    console.log(locations[i].labels)
+
+  for (i = 0; i < markers.length; i++) {
+    console.log(markers[i].labels)
     var marker = new google.maps.Marker({
-      position: locations[i],
+      position: markers[i],
       icon: {
         url: image,
         labelOrigin: {
@@ -292,9 +291,9 @@ function initMap() {
           y: 0
         }
       },
-      title: locations[i].labels,
+      title: markers[i].labels,
       label: {
-        text: locations[i].labels,
+        text: markers[i].labels,
         color: '#dad9d7',
         fontSize: '15px',
         textAlign: "center"
@@ -352,12 +351,41 @@ function galleryPictures() {
 }
 galleryPictures(); 
 
+// Sets the map on all markers in the array.
+function setMapOnAll(map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
+}
+
+function clearMarkers() {
+  setMapOnAll(null);
+}
+
+// Deletes all markers in the array by removing references to them.
+function deleteMarkers() {
+  clearMarkers();
+  markers = [];
+}
 
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
 output.innerHTML = slider.value; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output.innerHTML = this.value;
-} 
+ slider.oninput = function() {
+
+
+  deleteMarkers();
+ 
+ 
+ 
+ 
+/*   for (i = 0; i < locations.length; i++ ){
+    if (locations[i].year <= this.value){
+      console.log(locations[i].year)
+    }
+  }
+  output.innerHTML = this.value; */
+}  
+
