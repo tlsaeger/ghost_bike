@@ -38,22 +38,50 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p {
         height: 100%;
       }
 
-      .detailContainer1{
-          float: right;
+      #galleryImgFlexContainer{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          max-width: 85vw;
+          margin:auto;
+          align-items: baseline;
+          flex-basis: 20%;
       }
-      .detailContainer0{
-          float: left;
-      } 
-      .detailContainer{
-          margin: 12vh 20vw;
-          clear: both;
-
-      }
-     img{
-        height: 20vh;
-        width: auto;
-
-    } 
-    .descritptionText{
-        font-size: 4em;
+    .galleryContainerImg{
+        flex: 20%;
+        margin: 0 4px;
     }
+    .galleryImg{
+        vertical-align: middle;
+        width: 20vw;
+    }
+    .slidecontainer {
+        width: 100%; /* Width of the outside container */
+      }
+      .slider {
+        -webkit-appearance: none;  /* Override default CSS styles */
+        appearance: none;
+        width: 100%; /* Full-width */
+        height: 25px; /* Specified height */
+        background: #000000; /* Grey background */
+        outline: none; /* Remove outline */
+        opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+        -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+        transition: opacity .2s;
+      }
+
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: #f5f5f5; /* Green background */
+        cursor: pointer; /* Cursor on hover */
+      }
+
+      .slider::-moz-range-thumb {
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: #f5f5f5; /* Green background */
+        cursor: pointer; /* Cursor on hover */
+      }
