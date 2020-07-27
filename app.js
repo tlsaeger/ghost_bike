@@ -1,3 +1,6 @@
+//Marker Icon
+var image = "Assets/mountain-bike.png";
+//Locations 
 var locations = [{
     lat: 53.550415,
     lng: 10.109466,
@@ -53,9 +56,41 @@ var locations = [{
     labels: "30.01.2014",
     streetName: "Mundsburger Damm/Arm­gartstraße",
     year: 2014
+  },
+  {
+    lat: 53.545973,
+    lng: 9.969355,
+    labels: "08.10.2019",
+    streetName: "Bei den St. Pauli Landungsbrücken",
+    year: 2019
+  },
+  {
+    lat: 53.455057,
+    lng: 9.990482,
+    labels: "03.03.2016",
+    streetName: "Hannoversche Straße Höhe 100",
+    year: 2019
+  },
+  {
+    lat: 53.805751,
+    lng: 10.004923,
+    labels: "21.10.2019",
+    streetName: "Henstedter Str./ Mühlenredder",
+    year: 2019
+  },
+  {
+    lat: 53.664552,
+    lng: 9.796481,
+    labels: "15.06.2020",
+    streetName: "Bismarckstr.",
+    year: 2020
   }
+
 ]
-var markers = []
+var marker = [];
+var counter = 0;
+var markers = [];
+//Images for Gallery
 var images = [
   "0",
   "1",
@@ -80,14 +115,7 @@ var images = [
 ]
 var map;
 var newImg;
-
-function onLoadFunc(){
-  for (i = 0; i < locations.length; i++){
-    markers = markers.pop(locations[i])
-    console.log(markers)
-  }
-}
-
+//initalise the Map, with a specific location currently the Alster in Hamburg includes Dark-Mode Styles
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: {
@@ -285,12 +313,79 @@ function initMap() {
       }
     ]
   });
-  var image = "Assets/mountain-bike.png";
+}
+
+/* function initialPush() {
+    markers.push(locations);
+    console.log(markers[0])
+} */
 
 
-  for (i = 0; i < markers.length; i++) {
-    console.log(markers[i].labels)
-    var marker = new google.maps.Marker({
+//add the Gallery Pictures automaticaly, add a new line for each image in var images
+function galleryPictures() {
+  for (i = 0; i < images.length; i++) {
+    /* var classNumber = i % 2; */
+
+    var newContainer = document.createElement("div");
+    newContainer.classList.add('galleryContainerImg');
+    var section = document.getElementById("galleryImgFlexContainer");
+    section.appendChild(newContainer);
+
+    var newImg = document.createElement("img");
+    newImg.src = "Assets/img/ghost_bike_gallery" + images[i] + ".jpg";
+    newImg.setAttribute('class', 'galleryImg');
+    newContainer.appendChild(newImg);
+  }
+
+}
+galleryPictures();
+/* initialPush(); */
+
+
+// Sets the map on all markers in the array.
+function setMapOnAll(map) {
+  for (let i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
+}
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value; // Display the default slider value
+
+function markerSliderFunc() {
+  if (counter != 0) {
+    setMapOnAll(null);
+    markers = [];
+    console.log(markers)
+  }
+
+  for (var i = 0; i < locations.length; i++) {
+    if (locations[i].year <= slider.value) {
+      const marker = new google.maps.Marker({
+        position: locations[i],
+        icon: {
+          url: image,
+          labelOrigin: {
+            x: 12,
+            y: 0
+          }
+        },
+        title: locations[i].labels,
+        label: {
+          text: locations[i].labels,
+          color: '#dad9d7',
+          fontSize: '15px',
+          textAlign: "center"
+        },
+        map: map
+      });
+      markers.push(marker);
+      console.log(markers)
+    }
+  }
+  /* for (var i = 0; i < markers.length; i++) {
+    marker = new google.maps.Marker({
       position: markers[i],
       icon: {
         url: image,
@@ -307,93 +402,17 @@ function initMap() {
         textAlign: "center"
       },
       map: map
-    });
-   /*  streetViewFunc(lat, lng, newImg); */
+    }); */
+  setMapOnAll(map);
+  console.log(marker);
 
-
-  /*   function streetViewFunc(lat, lng, newImg) {
-      var newImg = document.createElement("img");
-      newImg.src = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + lat + "," + lng + "&heading=151.78&pitch=-0.76&key=" + APIKey;
-      console.log(lat,lng)
-    } */
-    marker.addListener("click", function (e) {
-      console.log(e.latLng);
-      var newImg = document.createElement("img");
-      var latLng = e.latLng.replace(/[- )(]/g,"");
-      newImg.src = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + latLng+ "&heading=151.78&pitch=-0.76&key=" + APIKey;
-      var section = document.getElementById("detailPicture");
-      section.appendChild(newImg); 
-    });
-
-  }
-
+  counter++;
 }
 
-
-function galleryPictures() {
-  for (i = 0; i < images.length; i++) {
-    /* var classNumber = i % 2; */
-
-    var newContainer = document.createElement("div");
-    newContainer.classList.add('galleryContainerImg');
-    var section = document.getElementById("galleryImgFlexContainer");
-    section.appendChild(newContainer); 
-
-    var newImg = document.createElement("img");
-    newImg.src = "Assets/img/ghost_bike_gallery" + images[i] + ".jpg";
-    newImg.setAttribute('class', 'galleryImg');
-    newContainer.appendChild(newImg);
-
- /*    var descriptionText = document.createElement("h2");
-    descriptionText.classList.add("descritptionTextHeadline")
-    descriptionText.innerHTML = locations[i].labels;
-    newContainer.appendChild(descriptionText);
-
-    var streetName = document.createElement("p");
-    streetName.classList.add("descritptionTextBody");
-    streetName.innerHTML = locations[i].streetName;
-    newContainer.appendChild(streetName); */
-
-
-  }
-}
-galleryPictures(); 
-
-// Sets the map on all markers in the array.
-function setMapOnAll(map) {
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(map);
-  }
-}
-
-function clearMarkers() {
-  setMapOnAll(null);
-}
-
-// Deletes all markers in the array by removing references to them.
-function deleteMarkers() {
-  clearMarkers();
-  markers = [];
-}
-
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
- slider.oninput = function() {
-
-
-  deleteMarkers();
- 
- 
- 
- 
-/*   for (i = 0; i < locations.length; i++ ){
-    if (locations[i].year <= this.value){
-      console.log(locations[i].year)
-    }
-  }
-  output.innerHTML = this.value; */
-}  
-
+slider.oninput = function () {
+  markerSliderFunc();
+  console.log(slider.value)
+  output.innerHTML = this.value;
+};
