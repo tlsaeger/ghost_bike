@@ -314,13 +314,6 @@ function initMap() {
     ]
   });
 }
-
-/* function initialPush() {
-    markers.push(locations);
-    console.log(markers[0])
-} */
-
-
 //add the Gallery Pictures automaticaly, add a new line for each image in var images
 function galleryPictures() {
   for (i = 0; i < images.length; i++) {
@@ -339,7 +332,11 @@ function galleryPictures() {
 
 }
 galleryPictures();
-/* initialPush(); */
+
+//calling slider function to set the inital value to current year
+var slider = document.getElementById("myRange");
+
+
 
 
 // Sets the map on all markers in the array.
@@ -348,18 +345,13 @@ function setMapOnAll(map) {
     markers[i].setMap(map);
   }
 }
-
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
-
+//Function to set the markers in scope in the map
 function markerSliderFunc() {
   if (counter != 0) {
     setMapOnAll(null);
     markers = [];
-    console.log(markers)
+    console.log("test")
   }
-
   for (var i = 0; i < locations.length; i++) {
     if (locations[i].year <= slider.value) {
       const marker = new google.maps.Marker({
@@ -381,38 +373,16 @@ function markerSliderFunc() {
         map: map
       });
       markers.push(marker);
-      console.log(markers)
     }
   }
-  /* for (var i = 0; i < markers.length; i++) {
-    marker = new google.maps.Marker({
-      position: markers[i],
-      icon: {
-        url: image,
-        labelOrigin: {
-          x: 12,
-          y: 0
-        }
-      },
-      title: markers[i].labels,
-      label: {
-        text: markers[i].labels,
-        color: '#dad9d7',
-        fontSize: '15px',
-        textAlign: "center"
-      },
-      map: map
-    }); */
   setMapOnAll(map);
-  console.log(marker);
-
   counter++;
 }
-
-
+console.log(slider.value)
+var output = document.getElementById("demo");
+/* output.innerHTML = slider.value; */ // Display the default slider value
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function () {
   markerSliderFunc();
-  console.log(slider.value)
-  output.innerHTML = this.value;
+  /*  output.innerHTML = this.value; */
 };

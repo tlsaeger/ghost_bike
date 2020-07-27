@@ -3,12 +3,12 @@
   <head>
     <title>Ghost Bikes</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="api-key.js"></script>
+
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
 
   </head>
-  <body>
+  <body onload="markerSliderFunc()">
       <section>
       <h1 id="title">Ghost Bikes</h1>
         <div id="galleryImgFlexContainer"></div>
@@ -18,10 +18,7 @@
     <input type="range" min="2014" max="2020" value="2020" class="slider" id="myRange">
     <p>Value: <span id="demo"></span></p>
   </div>
-    <script src="./app.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
+  <script src="api-key.js"></script>
+  <script src="./app.js"></script>
   </body>
 </html>
