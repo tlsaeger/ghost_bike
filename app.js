@@ -1,4 +1,4 @@
-var markers = [{
+var locations = [{
     lat: 53.550415,
     lng: 10.109466,
     labels: "03.06.20",
@@ -55,6 +55,7 @@ var markers = [{
     year: 2014
   }
 ]
+var markers = []
 var images = [
   "0",
   "1",
@@ -79,6 +80,13 @@ var images = [
 ]
 var map;
 var newImg;
+
+function onLoadFunc(){
+  for (i = 0; i < locations.length; i++){
+    markers = markers.pop(locations[i])
+    console.log(markers)
+  }
+}
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
