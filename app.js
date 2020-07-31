@@ -96,7 +96,7 @@ var images = [
   "1",
   "2",
   "3",
-  "4",
+  /* "4", */
   /* "5",
   "6",
   "7",
@@ -118,7 +118,9 @@ var newImg;
 //initalise the Map, with a specific location currently the Alster in Hamburg includes Dark-Mode Styles
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: {
+    disableDefaultUI: true,
+    zoomControl: true,
+   center: {
       lat: 53.565575,
       lng: 10.006912
     },
