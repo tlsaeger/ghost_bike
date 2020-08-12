@@ -275,8 +275,8 @@ function markerSliderFunc() {
         icon: {
           url: image,
           labelOrigin: {
-            x: 12,
-            y: 0
+            x: 30,
+            y: 45
           }
         },
         title: locations[i].labels,
@@ -294,7 +294,6 @@ function markerSliderFunc() {
   setMapOnAll(map);
   counter++;
 }
-console.log(slider.value)
 var output = document.getElementById("demo");
 /* output.innerHTML = slider.value; */ // Display the default slider value
 // Update the current slider value (each time you drag the slider handle)
@@ -302,3 +301,35 @@ slider.oninput = function () {
   markerSliderFunc();
   /*  output.innerHTML = this.value; */
 };
+
+function clickAbout(){
+  var imprint = document.getElementById("imprint");
+  var about = document.getElementById("about-this-project");
+  var footer = document.getElementById("footer");
+  if(about.classList.contains("footer-content-clicked")){
+    about.classList.remove("footer-content-clicked");
+    footer.scrollIntoView({behavior: "smooth"})
+
+  }
+  else{
+  imprint.classList.remove("footer-content-clicked");
+  about.classList.add("footer-content-clicked");
+  about.scrollIntoView({behavior: "smooth"});
+  }
+}
+
+function clickImprint(){
+  var about = document.getElementById("about-this-project");
+  var imprint = document.getElementById("imprint");
+  var footer = document.getElementById("footer");
+  if(imprint.classList.contains("footer-content-clicked")){
+    imprint.classList.remove("footer-content-clicked");
+    footer.scrollIntoView({behavior: "smooth"})
+
+  }
+  else{
+  about.classList.remove("footer-content-clicked");
+  imprint.classList.add("footer-content-clicked");
+  imprint.scrollIntoView({behavior: "smooth"});
+  }
+}

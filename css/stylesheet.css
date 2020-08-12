@@ -59,12 +59,29 @@ a{
 }
 footer{
   height: auto;
-  margin: 20px;
+  margin: 2vh;
 }
 footer h3{
   color: #f5f5f5;
   float: left;
 }
+.headline-link{
+  cursor: pointer;
+}
+.footer-content{
+  margin: 10vh 0 5vh;
+  padding: 2vh 10vw;
+  display: none;
+  }
+  #about-this-project h3,
+  #about-this-project a,
+  #about-this-project p{
+    color: #f5f5f5;
+  }
+  .footer-content-clicked{
+    display: block;
+  }
+
 #imageHead {
   width: 100%;
   overflow: hidden;
@@ -101,7 +118,9 @@ color: #f5f5f5
   background-color: #f5f5f5;
   padding: 2vh 10vw;
 }
-#contributeSection h2,h3,p{
+#contributeSection h2,
+#contributeSection h3,
+#contributeSection p{
 color: #000000;
 }
 
@@ -279,6 +298,7 @@ input[type=range]:focus::-ms-fill-upper {
   width: 100%;
   justify-content: space-between;
 }
+
 
 @media only screen and (max-width: 1000px){
   #contributeFlex{
