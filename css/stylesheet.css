@@ -30,6 +30,9 @@ section {
 body{
   font-size: 18px;
 }
+p{
+  font-family: 'Source Sans Pro', sans-serif;;
+}
 
 html,
 body {
