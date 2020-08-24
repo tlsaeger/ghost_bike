@@ -333,3 +333,8 @@ function clickImprint(){
   imprint.scrollIntoView({behavior: "smooth"});
   }
 }
+
+function cityButtonFunc(city_id){
+  map.setCenter(city_id);
+  
+}
