@@ -334,7 +334,13 @@ function clickImprint(){
   }
 }
 
-function cityButtonFunc(city_id){
-  map.setCenter(city_id);
-  
+function cityButtonFunc(city_pos,city_id){
+  var city_class = document.getElementsByClassName("city-button");
+  console.log(city_class)
+  for (i = 0; i < city_class.length; i++){
+    city_class[i].classList.remove("city-button-active");
+  }
+  var cityActive = document.getElementById(city_id);
+  cityActive.classList.add("city-button-active");
+  map.setCenter(city_pos);
 }
